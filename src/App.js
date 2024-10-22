@@ -1,6 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components' /* links de importação */
 import { createGlobalStyle } from "styled-components"
-import { ThemeProvider } from 'styled-components'/* é um componente que permite o compartilhamento e defina um conjunto de estilos */
+import Navbar from './components/navbar/Navbar';
+import Hero from './components/hero/Hero';
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -9,36 +10,22 @@ const GlobalStyles = createGlobalStyle`
     *{
       font-family: 'Roboto', sans-serif;
     }
-
   }
-`
+`;
 
 const Container = styled.div` /*Sempre colocar STYLED depois do = */
   background-color: white;
   height: 100vh;
-  display: flex;
-  flex-direction: row; /*Alinha os itens em LINHA */
 `
-
-const Title = styled.h1`
-  color: ${(props) => props.theme.colors.secondary}
-`;
-const theme = {
-  colors: {
-    primary: 'darkBlue',
-    secondary: 'tomato',
-  },
-};
 
 function App() {
   return (
     <>
-    <ThemeProvider theme={theme}>
     <GlobalStyles />
-    <Container >
-      <Title>Pedro gostosao</Title>
+    <Container>
+      <Navbar />
+      <Hero />
     </Container>
-    </ThemeProvider>
     </>
   );
 }
